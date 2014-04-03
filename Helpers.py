@@ -1,3 +1,4 @@
+#!/bin/sh
 def LengthFixer(String):
     
     spacerThing = ""
@@ -24,12 +25,42 @@ class Setup():
         elif 'linux' in os.sys.platform:
             if os.sys.maxsize == 9223372036854775807:
                 # Maximum positive integer on 64-bit systems
-                FFMPEG_BIN="./ffmpeg/bin/linux64/ffmpeg" # Linux 64 bit
+                try:
+                    FFMPEG_BIN="./ffmpeg/bin/linux64/ffmpeg" # Linux 64 bit
+                    import subprocess as sp
+                    pipe = sp.Popen([ FFMPEG_BIN,"--help"])
+                except:
+                    try:
+                        FFMPEG_BIN="/usr/lib/ffmpeg/ffmpeg"
+                        pipe = sp.Popen([ FFMPEG_BIN,"--help"])
+                    except:
+                        print("You don't have ffmpeg!")
+                        raise EnvironmentError
             elif os.sys.maxsize == 2147483647:
                 # Maximum positive integer on 32-bit systems
-                FFMPEG_BIN="./ffmpeg/bin/linux32/ffmpeg" # Linux 32 bit
+                try:
+                    FFMPEG_BIN="./ffmpeg/bin/linux32/ffmpeg" # Linux 32 bit
+                    import subprocess as sp
+                    pipe = sp.Popen([ FFMPEG_BIN,"--help"])
+                except:
+                    try:
+                        FFMPEG_BIN="/usr/lib/ffmpeg/ffmpeg"
+                        pipe = sp.Popen([ FFMPEG_BIN,"--help"])
+                    except:
+                        print("You don't have ffmpeg!")
+                        raise EnvironmentError
             else:
-                FFMPEG_BIN="./ffmpeg/bin/linux32/ffmpeg"
+                try:
+                    FFMPEG_BIN="./ffmpeg/bin/linux32/ffmpeg" # Linux 32 bit
+                    import subprocess as sp
+                    pipe = sp.Popen([ FFMPEG_BIN,"--help"])
+                except:
+                    try:
+                        FFMPEG_BIN="/usr/lib/ffmpeg/ffmpeg"
+                        pipe = sp.Popen([ FFMPEG_BIN,"--help"])
+                    except:
+                        print("You don't have ffmpeg!")
+                        raise EnvironmentError
                 # That's the same path as Linux 32 bit,
                 # but I wanted it for code cleanliness
         else:
