@@ -31,7 +31,7 @@ class Setup():
                     pipe = sp.Popen([ FFMPEG_BIN,"--help"])
                 except:
                     try:
-                        FFMPEG_BIN="/usr/lib/ffmpeg/ffmpeg"
+                        FFMPEG_BIN="/usr/bin/ffmpeg"
                         pipe = sp.Popen([ FFMPEG_BIN,"--help"])
                     except:
                         print("You don't have ffmpeg!")
@@ -44,7 +44,7 @@ class Setup():
                     pipe = sp.Popen([ FFMPEG_BIN,"--help"])
                 except:
                     try:
-                        FFMPEG_BIN="/usr/lib/ffmpeg/ffmpeg"
+                        FFMPEG_BIN="/usr/bin/ffmpeg"
                         pipe = sp.Popen([ FFMPEG_BIN,"--help"])
                     except:
                         print("You don't have ffmpeg!")
@@ -56,7 +56,7 @@ class Setup():
                     pipe = sp.Popen([ FFMPEG_BIN,"--help"])
                 except:
                     try:
-                        FFMPEG_BIN="/usr/lib/ffmpeg/ffmpeg"
+                        FFMPEG_BIN="/usr/bin/ffmpeg"
                         pipe = sp.Popen([ FFMPEG_BIN,"--help"])
                     except:
                         print("You don't have ffmpeg!")
