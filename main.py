@@ -12,7 +12,7 @@ from os import sys
 # Video Imports
 import subprocess as sp
 import numpy
-from scipy import ndimage, misc
+#from scipy import ndimage, misc
 
 # Reddit Imports
 import configparser

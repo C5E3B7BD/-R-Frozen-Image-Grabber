@@ -1,3 +1,12 @@
+def LengthFixer(String):
+    
+    spacerThing = ""
+    if len(String)>49:
+            return ('|'+String[:45]+'... '+'|')
+    for i in range(1, int(50-len(String))):
+        spacerThing +=" "
+        if len(String+spacerThing)==49:
+            return '|'+String+spacerThing+'|'
 class Setup():
     def __init__(self):
         import os
@@ -12,7 +21,7 @@ class Setup():
                 FFMPEG_BIN="./ffmpeg/bin/win32/ffmpeg.exe"
                 # That's the same path as Windows 32 bit,
                 # but I wanted it for code cleanliness
-        elif os.sys.platform == 'linux':
+        elif 'linux' in os.sys.platform:
             if os.sys.maxsize == 9223372036854775807:
                 # Maximum positive integer on 64-bit systems
                 FFMPEG_BIN="./ffmpeg/bin/linux64/ffmpeg" # Linux 64 bit
@@ -29,15 +38,6 @@ class Setup():
         self.FFMPEG_BIN = FFMPEG_BIN
     def FFMPEG(self):
         return self.FFMPEG_BIN
-def LengthFixer(String):
-    
-    spacerThing = ""
-    if len(String)>49:
-            return ('|'+String[:45]+'... '+'|')
-    for i in range(1, int(50-len(String))):
-        spacerThing +=" "
-        if len(String+spacerThing)==49:
-            return '|'+String+spacerThing+'|'
 def GetFrame(Time, FFMPEG_BIN):
     # Video Imports
     import numpy
